@@ -9,14 +9,19 @@ module.exports = {
     require.resolve('@vercel/style-guide/eslint/react'),
     require.resolve('@vercel/style-guide/eslint/next'),
     require.resolve('@vercel/style-guide/eslint/node'),
-    require.resolve('@vercel/style-guide/eslint/typescript'),
   ],
   rules: {
     'import/no-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'eslint-comments/require-description': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    'no-unused-vars': 'off',
   },
   parserOptions: {
     project,
   },
+  plugins: ['@typescript-eslint/eslint-plugin'],
+  parser: '@typescript-eslint/parser',
   settings: {
     'import/resolver': {
       typescript: {

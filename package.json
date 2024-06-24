@@ -25,13 +25,18 @@
   "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
     "next": "14.2.4",
+    "next-intl": "^3.15.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@redux-devtools/extension": "^3.3.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
     "@vercel/style-guide": "^6.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
