@@ -7,8 +7,12 @@ export default getRequestConfig(async () => {
   // read from `cookies()`, `headers()`, etc.
   const DEFAULT_LOCALE: TLang = await getCookieLanguage();
 
-  const messages = (await import(`../messages/${DEFAULT_LOCALE}.json`))
-    .default as Record<string, string>;
+  const messages =
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    (await import(`../messages/${DEFAULT_LOCALE}.json`)).default as Record<
+      string,
+      string
+    >;
 
   return {
     locale: DEFAULT_LOCALE,

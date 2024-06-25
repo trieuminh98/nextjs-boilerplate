@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/require-await */
 'use server';
-import { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
+import { type ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 import { cookies } from 'next/headers';
 import { SEVEN_DAY } from '../types/common.type';
 

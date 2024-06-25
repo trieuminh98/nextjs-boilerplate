@@ -2,26 +2,26 @@
 import { useCallback, useEffect } from 'react';
 import { getCookieLanguage, setCookieLanguage } from '../actions';
 import { useLanguageStore } from '../stores';
-import { TLang } from '../types';
+import { type TLang } from '../types';
 
 export const useLanguage = () => {
   const { lang, changeLanguage: changeStoreLanguage } = useLanguageStore(
     (state) => state,
   );
 
-  const changeLanguage = useCallback(async (lang: TLang) => {
-    changeStoreLanguage(lang);
-    await setCookieLanguage(lang);
+  const changeLanguage = useCallback(async (newLang: TLang) => {
+    changeStoreLanguage(newLang);
+    await setCookieLanguage(newLang);
   }, []);
 
   useEffect(() => {
     const init = async () => {
       if (!lang) {
-        const lang = await getCookieLanguage();
-        changeLanguage(lang);
+        const cookieLang = await getCookieLanguage();
+        void changeLanguage(cookieLang);
       }
     };
-    init();
+    void init();
   }, []);
 
   return { changeLanguage, lang };
