@@ -1,21 +1,8 @@
-'use client';
-import { useTranslations } from 'next-intl';
-import { useLanguage } from '../hooks';
+import { Box } from '@mui/material';
+import { type PropsWithChildren } from 'react';
 
-export default function Home() {
-  const t = useTranslations();
-  const { lang, changeLanguage } = useLanguage();
-  return (
-    <main>
-      {t('title')}
-      <button
-        type="button"
-        onClick={() =>
-          lang === 'en' ? changeLanguage('vi') : changeLanguage('en')
-        }
-      >
-        click me
-      </button>
-    </main>
-  );
+function Home({ children }: PropsWithChildren) {
+  return <Box component="main">{children}</Box>;
 }
+
+export default Home;
