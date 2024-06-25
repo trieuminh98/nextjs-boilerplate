@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/naming-convention': 'off',
     'import/order': 'off',
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
   },
   parserOptions: {
     project,

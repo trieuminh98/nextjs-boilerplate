@@ -8,4 +8,9 @@ export type TLang = 'en' | 'vi';
 //Enums
 export enum COOKIE_KEYS {
   LANG = 'lang',
+  THEME = 'theme',
+}
+
+export enum LS_KEYS {
+  LANG = 'lang',
 }

@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 import { Inter } from 'next/font/google';
@@ -21,10 +22,10 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale}>
-      <body className={inter.className}>
+    <Box component="html" lang={locale}>
+      <Box component="body" className={inter.className}>
         <Providers>{children}</Providers>
-      </body>
-    </html>
+      </Box>
+    </Box>
   );
 }
