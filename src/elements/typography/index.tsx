@@ -12,12 +12,7 @@ import {
   useTheme,
   type TypographyProps as MTypographyProps,
 } from '@mui/material';
-import { useMemo, type PropsWithChildren } from 'react';
-
-export type TTypographyProps = {
-  color?: ColorPalette;
-  variant?: ResponsiveVariant;
-} & Omit<MTypographyProps, 'color' | 'variant'>;
+import { useMemo, type ElementType, type PropsWithChildren } from 'react';
 
 export type ResponsiveVariant = ConvertObjectValue<
   TCustomBreakpoint,
@@ -25,12 +20,28 @@ export type ResponsiveVariant = ConvertObjectValue<
   true
 >;
 
-export function Typography({
-  color,
-  variant,
+type TCustomTypographyProps = {
+  plainColor?: ColorPalette;
+  cate?: TTypographyVariantKeys | ResponsiveVariant;
+  ellipsisLine?: number;
+};
+
+export type TypographyProps<D extends ElementType> = MTypographyProps<
+  D,
+  {
+    component?: D;
+  } & TCustomTypographyProps
+>;
+
+export function Typography<D extends ElementType = 'div'>({
+  plainColor,
+  cate,
   sx,
+  component,
   children,
-}: PropsWithChildren<TTypographyProps>) {
+  ellipsisLine,
+  ...rest
+}: PropsWithChildren<TypographyProps<D>>) {
   const theme = useTheme();
   const breakpointsKey = useMemo(() => theme.breakpoints.keys.toReversed(), []);
 
@@ -49,12 +60,12 @@ export function Typography({
   // Determine the current variant based on breakpoints
   let currentVariant: MTypographyProps['variant'] | undefined;
 
-  if (typeof variant === 'string') {
-    currentVariant = variant;
-  } else if (variant) {
+  if (typeof cate === 'string') {
+    currentVariant = cate;
+  } else if (cate) {
     for (const key of breakpointsKey) {
-      if (breakpoints[key] && variant[key]) {
-        currentVariant = variant[key];
+      if (breakpoints[key] && cate[key]) {
+        currentVariant = cate[key];
         break;
       }
     }
@@ -62,11 +73,24 @@ export function Typography({
 
   return (
     <MTypography
-      variant={currentVariant}
+      suppressHydrationWarning
+      variant={currentVariant ?? 'large_title'}
+      component={component ?? 'div'}
       sx={{
-        color,
+        textWrap: 'pretty',
+        whiteSpace: 'pre-line', //break line for \n
+        //Custom
+        color: plainColor,
+        ...(ellipsisLine && {
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          display: '-webkit-box',
+          WebkitLineClamp: ellipsisLine,
+          WebkitBoxOrient: 'vertical',
+        }),
         ...sx,
       }}
+      {...rest}
     >
       {children}
     </MTypography>

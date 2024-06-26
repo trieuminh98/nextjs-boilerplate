@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 import { type PropsWithChildren } from 'react';
-import { Typography } from '../components';
+import { Typography } from '../elements';
 import Providers from '../providers/providers';
 import { roboto } from '../utils';
 
