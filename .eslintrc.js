@@ -25,6 +25,8 @@ module.exports = {
       'error',
       { allowNumber: true },
     ],
+    '@typescript-eslint/no-empty-interface': 'off',
+    '@typescript-eslint/prefer-reduce-type-parameter': 'off',
   },
   parserOptions: {
     project,

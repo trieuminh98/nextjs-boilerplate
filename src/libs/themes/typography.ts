@@ -1,17 +1,15 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
-import { remCalc, roboto } from '@/src/utils';
+import { type ConvertObjectValue, remCalc, roboto } from '@/src/utils';
 import { type Palette, type PaletteMode } from '@mui/material';
 import { type TypographyOptions } from '@mui/material/styles/createTypography';
 
-type ConvertToOverrides<T> = {
-  [K in keyof T]: true;
-};
+export type TTypographyVariants = typeof typoVariants;
+export type TTypographyVariantKeys = keyof typeof typoVariants;
 
 // Update the Typography's variant prop options
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides
-    extends ConvertToOverrides<typeof typoVariants> {}
+    extends ConvertObjectValue<TTypographyVariants, true> {}
 }
 
 type TTypographyStyle = {
@@ -44,7 +42,11 @@ export const generateTextStyles = (
 
 const typoVariants = {
   large_title: generateTextStyles(40, 100, 700, 0),
-  title_1_bold: generateTextStyles(36, 120, 700, 0),
+  title_1_bold: generateTextStyles(10, 120, 700, 0),
+  title_2_bold: generateTextStyles(20, 120, 700, 0),
+  title_3_bold: generateTextStyles(30, 120, 700, 0),
+  title_4_bold: generateTextStyles(40, 120, 700, 0),
+  title_5_bold: generateTextStyles(120, 120, 700, 0),
 };
 
 export const getTypography = (

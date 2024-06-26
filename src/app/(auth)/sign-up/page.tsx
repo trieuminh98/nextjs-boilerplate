@@ -12,7 +12,16 @@ function SignupPage({ children }: PropsWithChildren) {
   return (
     <div>
       <Typography>Signup Page</Typography>
-      <Typography color="text.secondary" variant="title_1_bold">
+      <Typography
+        color="text.primary"
+        variant={{
+          xs: 'title_1_bold',
+          sm: 'title_2_bold',
+          lg: 'title_3_bold',
+          xl: 'title_4_bold',
+          desktop: 'title_5_bold',
+        }}
+      >
         Signup Page
       </Typography>
       {t('title')}
