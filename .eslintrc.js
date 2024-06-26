@@ -20,6 +20,13 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/naming-convention': 'off',
     'import/order': 'off',
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    '@typescript-eslint/restrict-template-expressions': [
+      'error',
+      { allowNumber: true },
+    ],
+    '@typescript-eslint/no-empty-interface': 'off',
+    '@typescript-eslint/prefer-reduce-type-parameter': 'off',
   },
   parserOptions: {
     project,

@@ -1,10 +1,10 @@
+import { Box } from '@mui/material';
 import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
-import { Inter } from 'next/font/google';
 import { type PropsWithChildren } from 'react';
+import { Typography } from '../components';
 import Providers from '../providers/providers';
-
-const inter = Inter({ subsets: ['latin'] });
+import { roboto } from '../utils';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,10 +21,12 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale}>
-      <body className={inter.className}>
+    <Box component="html" lang={locale}>
+      <Box component="body" className={roboto.className}>
+        <Typography>hello</Typography>
+
         <Providers>{children}</Providers>
-      </body>
-    </html>
+      </Box>
+    </Box>
   );
 }
