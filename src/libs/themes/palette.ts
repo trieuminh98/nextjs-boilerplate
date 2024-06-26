@@ -1,37 +1,18 @@
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
 import { type DotNotation } from '@/src/utils';
 import { type PaletteMode } from '@mui/material';
 import { amber, deepOrange } from '@mui/material/colors';
 
-declare module '@mui/material/styles/createPalette' {
-  interface PaletteOptions {
-    play?: string;
-  }
-
-  interface Palette {
-    play: string;
-  }
-
-  interface Theme {
-    play: string;
-  }
-  // allow configuration using `createTheme`
-  interface ThemeOptions {
-    play: string;
-  }
-}
-
 const light = {
-  play: amber['100'],
-  base_gray: {
-    '100': amber[400],
+  text: {
+    primary: '#000000',
+    secondary: amber['100'],
   },
 };
 
 const dark = {
-  play: deepOrange['100'],
-  base_gray: {
-    '100': deepOrange[400],
+  text: {
+    primary: '#ffffff',
+    secondary: deepOrange['100'],
   },
 };
 
