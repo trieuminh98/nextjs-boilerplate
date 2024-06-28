@@ -3,14 +3,15 @@ import { Typography } from '@/src/elements';
 import { useLanguage, useThemeMode } from '@/src/hooks';
 import { Button } from '@mui/material';
 import { useTranslations } from 'next-intl';
-import { type PropsWithChildren } from 'react';
+import Link from 'next/link';
+import { Suspense, type PropsWithChildren } from 'react';
 
 function SignupPage({ children }: PropsWithChildren) {
   const t = useTranslations();
   const { lang, changeLanguage } = useLanguage();
   const { themeMode, changeTheme } = useThemeMode();
   return (
-    <div>
+    <Suspense>
       <Typography component="a" href="/">
         Signup Page
       </Typography>
@@ -42,8 +43,11 @@ function SignupPage({ children }: PropsWithChildren) {
       >
         changeTheme
       </Button>
+      <Button href="/" LinkComponent={Link}>
+        Back
+      </Button>
       {children}
-    </div>
+    </Suspense>
   );
 }
 

@@ -13,4 +13,5 @@ export enum COOKIE_KEYS {
 
 export enum LS_KEYS {
   LANG = 'lang',
+  THEME = 'theme',
 }

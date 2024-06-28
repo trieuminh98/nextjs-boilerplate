@@ -16,7 +16,7 @@ export const useThemeMode = () => {
     await setCookieTheme(newTheme);
     //Additional setup for preventing flickering dark/light mode
     //TO DO: Remove when have any library update relating
-    setLS(LS_KEYS.LANG, newTheme);
+    setLS(LS_KEYS.THEME, newTheme);
   }, []);
 
   return { changeTheme, themeMode: theme };

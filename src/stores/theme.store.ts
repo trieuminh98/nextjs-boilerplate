@@ -15,7 +15,7 @@ export const useThemeStore = create<TThemeState>()(
   devtools(
     persist(
       (set) => ({
-        theme: getLS(LS_KEYS.LANG) ?? 'dark',
+        theme: getLS(LS_KEYS.THEME) ?? 'dark',
         changeTheme: (theme) => {
           set((_state) => ({ theme }));
         },

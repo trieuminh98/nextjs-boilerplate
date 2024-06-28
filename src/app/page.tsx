@@ -1,8 +1,12 @@
 import { Box } from '@mui/material';
-import { type PropsWithChildren } from 'react';
+import { Suspense, type PropsWithChildren } from 'react';
 
 function Home({ children }: PropsWithChildren) {
-  return <Box component="main">{children}</Box>;
+  return (
+    <Suspense>
+      <Box component="main">{children}</Box>
+    </Suspense>
+  );
 }
 
 export default Home;

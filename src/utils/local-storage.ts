@@ -1,19 +1,25 @@
 'use client';
+
+import { isServer } from './type';
+
 /**
  * Get an item from local storage
  * @param key - The key of the item to retrieve
  * @returns The item from local storage or null if it doesn't exist
  */
 export const getLS = <T>(key: string): T | null => {
-  const item = localStorage.getItem(key);
-  if (!item) return null;
-  try {
-    return JSON.parse(item) as T;
-  } catch (error) {
-    throw new Error(
-      `Error parsing JSON from localStorage for key "${key}": ${error as string}`,
-    );
+  if (!isServer()) {
+    const item = localStorage.getItem(key);
+    if (!item) return null;
+    try {
+      return JSON.parse(item) as T;
+    } catch (error) {
+      throw new Error(
+        `Error parsing JSON from localStorage for key "${key}": ${error as string}`,
+      );
+    }
   }
+  return null;
 };
 
 /**

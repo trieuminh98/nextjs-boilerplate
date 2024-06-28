@@ -27,6 +27,7 @@ module.exports = {
     ],
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/prefer-reduce-type-parameter': 'off',
+    '@typescript-eslint/ban-types': 'off',
   },
   parserOptions: {
     project,

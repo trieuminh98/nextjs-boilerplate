@@ -11,3 +11,5 @@ export type ConvertObjectValue<
   V,
   Options extends boolean = false,
 > = Options extends true ? { [K in keyof T]?: V } : { [K in keyof T]: V };
+
+export const isServer = () => typeof window === 'undefined';

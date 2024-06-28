@@ -43,7 +43,10 @@ export function Typography<D extends ElementType = 'div'>({
   ...rest
 }: PropsWithChildren<TypographyProps<D>>) {
   const theme = useTheme();
-  const breakpointsKey = useMemo(() => theme.breakpoints.keys.toReversed(), []);
+  const breakpointsKey = useMemo(() => {
+    const clone = [...theme.breakpoints.keys];
+    return clone.reverse();
+  }, []);
 
   // Define breakpoints
   const breakpoints = theme.breakpoints.keys.reduce<

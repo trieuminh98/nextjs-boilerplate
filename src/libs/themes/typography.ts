@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
-import { type ConvertObjectValue, remCalc, roboto } from '@/src/utils';
+import { type ConvertObjectValue, pretendard, remCalc } from '@/src/utils';
 import { type Palette, type PaletteMode } from '@mui/material';
 import { type TypographyOptions } from '@mui/material/styles/createTypography';
 
@@ -55,7 +55,7 @@ export const getTypography = (
   | TypographyOptions
   | ((palette: Palette) => TypographyOptions)
   | undefined => ({
-  fontFamily: roboto.style.fontFamily,
+  fontFamily: pretendard.style.fontFamily,
   allVariants: {
     ...defaultTypoStyle,
     color: mode === 'dark' ? '#ffffff' : '#000000',
