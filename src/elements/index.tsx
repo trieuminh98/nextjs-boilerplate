@@ -1,2 +1,2 @@
 export { Backdrop } from './backdrop';
-export * from './typography';
+export { Typography } from './typography';
