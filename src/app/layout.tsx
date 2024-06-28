@@ -1,9 +1,7 @@
 import { Box } from '@mui/material';
 import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
-import Link from 'next/link';
 import { type PropsWithChildren } from 'react';
-import { Typography } from '../elements';
 import Providers from '../providers/providers';
 import { pretendard } from '../utils';
 
@@ -24,8 +22,6 @@ export default async function RootLayout({
   return (
     <Box component="html" lang={locale}>
       <Box component="body" className={pretendard.className}>
-        <Typography>hello</Typography>
-        <Link href="/sign-up">Click me</Link>
         <Providers>{children}</Providers>
       </Box>
     </Box>

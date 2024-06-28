@@ -6,7 +6,12 @@ const withNextIntl = createNextIntlPlugin(
 );
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  experimental: {
+    instrumentationHook: true,
+  },
+};
+
 const millionConfig = {
   auto: { rsc: true },
 };
