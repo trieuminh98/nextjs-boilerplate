@@ -1,3 +1,3 @@
-export * from './next-intl-provider';
-export * from './providers';
-export * from './theme-provider';
+export * from './next-intl-provider'
+export * from './providers'
+export * from './theme-provider'

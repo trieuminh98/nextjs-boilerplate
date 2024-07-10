@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
-const { resolve } = require('node:path');
+const { resolve } = require('node:path')
 
-const project = resolve(__dirname, 'tsconfig.json');
+const project = resolve(__dirname, 'tsconfig.json')
 
 module.exports = {
   root: true,
@@ -9,9 +9,20 @@ module.exports = {
     require.resolve('@vercel/style-guide/eslint/browser'),
     require.resolve('@vercel/style-guide/eslint/react'),
     require.resolve('@vercel/style-guide/eslint/next'),
-    require.resolve('@vercel/style-guide/eslint/typescript'),
+    require.resolve('@vercel/style-guide/eslint/typescript')
   ],
   rules: {
+    //Enable
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+    'react/function-component-definition': [
+      'warn',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function'
+      }
+    ],
+    //Off
     'import/no-default-export': 'off',
     'import/no-extraneous-dependencies': 'off',
     'eslint-comments/require-description': 'off',
@@ -20,11 +31,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/naming-convention': 'off',
     'import/order': 'off',
-    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-    '@typescript-eslint/restrict-template-expressions': [
-      'error',
-      { allowNumber: true },
-    ],
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/prefer-reduce-type-parameter': 'off',
     '@typescript-eslint/ban-types': 'off',
@@ -33,18 +39,18 @@ module.exports = {
     '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/no-unnecessary-condition': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
-    '@typescript-eslint/no-misused-promises': 'off',
+    '@typescript-eslint/no-misused-promises': 'off'
   },
   parserOptions: {
-    project,
+    project
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
   parser: '@typescript-eslint/parser',
   settings: {
     'import/resolver': {
       typescript: {
-        project,
-      },
-    },
-  },
-};
+        project
+      }
+    }
+  }
+}

@@ -1,23 +1,17 @@
-'use client'; // Error components must be Client Components
+'use client' // Error components must be Client Components
 
-import { Button } from '@mui/material';
-import { useRouter } from 'next-nprogress-bar';
-import { useEffect } from 'react';
+import { Button } from '@mui/material'
+import { useRouter } from 'next-nprogress-bar'
+import { useEffect } from 'react'
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
-  const router = useRouter();
+const Error = ({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) => {
+  const router = useRouter()
 
   useEffect(() => {
     // Log the error to an error reporting service
     // eslint-disable-next-line no-console
-    console.error(error);
-  }, [error]);
+    console.error(error)
+  }, [error])
 
   return (
     <div>
@@ -26,13 +20,15 @@ export default function Error({
         onClick={
           // Attempt to recover by trying to re-render the segment
           () => {
-            reset();
-            router.push('/');
+            reset()
+            router.push('/')
           }
         }
       >
         Try again
       </Button>
     </div>
-  );
+  )
 }
+
+export default Error

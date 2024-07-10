@@ -1,16 +1,19 @@
-import { Box } from '@mui/material';
-import Link from 'next/link';
-import { Suspense, type PropsWithChildren } from 'react';
-import { Typography } from '../elements';
+import { Box, Stack } from '@mui/material'
+import { Suspense, type PropsWithChildren } from 'react'
 
-function Home({ children }: PropsWithChildren) {
+const Home = ({ children }: PropsWithChildren) => {
   return (
     <Suspense>
-      <Typography>hello</Typography>
-      <Link href="/sign-up">Click me</Link>
-      <Box component="main">{children}</Box>
+      <Stack direction='row'>
+        <Box component='nav'>first DrawerBar</Box>
+        <Box component='nav'>second DrawerBar</Box>
+        <Stack>
+          <Box component='header'>header</Box>
+          <Box component='main'>main{children}</Box>
+        </Stack>
+      </Stack>
     </Suspense>
-  );
+  )
 }
 
-export default Home;
+export default Home

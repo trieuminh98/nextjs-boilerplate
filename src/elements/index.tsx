@@ -1,2 +1,5 @@
-export { Backdrop } from './backdrop';
-export { Typography } from './typography';
+export { Backdrop } from './backdrop'
+export { default as Divider } from './divider'
+export { default as Image } from './image'
+export { Input, PrimaryInput } from './input'
+export { Typography } from './typography'

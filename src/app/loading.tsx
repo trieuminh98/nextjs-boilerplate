@@ -1,6 +1,8 @@
-import { Backdrop } from '../elements';
+import { Backdrop } from '../elements'
 
-export default function Loading() {
+const Loading = () => {
   // Or a custom loading skeleton component
-  return <Backdrop open />;
+  return <Backdrop open />
 }
+
+export default Loading

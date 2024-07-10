@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import { isServer } from './type';
+import { isServer } from './type'
 
 /**
  * Get an item from local storage
@@ -9,18 +9,16 @@ import { isServer } from './type';
  */
 export const getLS = <T>(key: string): T | null => {
   if (!isServer()) {
-    const item = localStorage.getItem(key);
-    if (!item) return null;
+    const item = localStorage.getItem(key)
+    if (!item) return null
     try {
-      return JSON.parse(item) as T;
+      return JSON.parse(item) as T
     } catch (error) {
-      throw new Error(
-        `Error parsing JSON from localStorage for key "${key}": ${error as string}`,
-      );
+      throw new Error(`Error parsing JSON from localStorage for key "${key}": ${error as string}`)
     }
   }
-  return null;
-};
+  return null
+}
 
 /**
  * Set an item in local storage
@@ -29,29 +27,27 @@ export const getLS = <T>(key: string): T | null => {
  */
 export const setLS = <T>(key: string, value: T): void => {
   try {
-    const item = JSON.stringify(value);
-    localStorage.setItem(key, item);
+    const item = JSON.stringify(value)
+    localStorage.setItem(key, item)
   } catch (error) {
-    throw new Error(
-      `Error setting item in localStorage for key "${key}": ${error as string}`,
-    );
+    throw new Error(`Error setting item in localStorage for key "${key}": ${error as string}`)
   }
-};
+}
 
 /**
  * Remove an item from local storage
  * @param key - The key of the item to remove
  */
 export const removeLS = (key: string): void => {
-  localStorage.removeItem(key);
-};
+  localStorage.removeItem(key)
+}
 
 /**
  * Clear all items from local storage
  */
 export const clearLS = (): void => {
-  localStorage.clear();
-};
+  localStorage.clear()
+}
 
 /**
  * Check if an item exists in local storage
@@ -59,5 +55,5 @@ export const clearLS = (): void => {
  * @returns True if the item exists, false otherwise
  */
 export const existsLS = (key: string): boolean => {
-  return localStorage.getItem(key) !== null;
-};
+  return localStorage.getItem(key) !== null
+}
